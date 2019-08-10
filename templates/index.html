@@ -5,13 +5,15 @@
     <title>Title</title>
 
     <script src="{{ url_for('static', filename = 'Timer.js') }}"></script>
-    <script>timer_vars = make_timer("{{ timer_data }}");</script>
 </head>
 <body>
-<class>
-    <!-- Display the countdown timer in an element -->
-    <p class="timer_name">{{ timer_name }}</p>
-    <p id="timer"></p>
-</class>
+{% for timer in timers %}
+    <class>
+        <!-- Display the countdown timer in an element -->
+        <p class="timer_name">{{ timer.name }}</p>
+        <p id="{{ timer.name }}"></p>
+        <script>make_timer("{{ timer.date }}", "{{ timer.name }}");</script>
+    </class>
+{% endfor %}
 </body>
 </html>
