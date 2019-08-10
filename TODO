@@ -1,6 +1,8 @@
 # Timer page design:
-    HTML - Naam, TimerEle
+    HTML - Make Multiple elements
+        DONE: Naam, TimerEle
     CSS - Desktop View, Mobile View, Stylize elements
-    JS - Fetch timer data from backend?, Make timer tick
+    JS - 
+        DONE: Fetch timer data from backend?, Make timer tick
 
 # Login Page

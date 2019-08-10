@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <script src="{{ url_for('static', filename = 'Timer.js') }}"></script>
+    <script>timer_vars = make_timer("{{ timer_data }}");</script>
 </head>
 <body>
-Floempie
+<class>
+    <!-- Display the countdown timer in an element -->
+    <p class="timer_name">{{ timer_name }}</p>
+    <p id="timer"></p>
+</class>
 </body>
 </html>
