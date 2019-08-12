@@ -18,7 +18,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////{}/{}'.format(os.getcwd(), d
 alchemy = SQLAlchemy(app)
 Event = db.configure_database(alchemy)
 
-timerdata = Event.query.all()
+
 
 #print("timerdata",timerdata, timerdata.date)
 def create_new_timer(name,date):
@@ -28,10 +28,12 @@ def create_new_timer(name,date):
 
 @app.route('/')
 def hello_world():
-    timers = timerdata[:5]
+    timerdata = Event.query.all()
+    timershead = timerdata[:5]
+    timersbot = timerdata[5:]
     timer_data = "Jan 5, 2021 15:37:25"
     timer_name = "TIMER 1"
-    return render_template('index.html', timers = timers)
+    return render_template('index.html', timershead = timershead, timersbot = timersbot)
 
 timer_add_route = '/add'
 @app.route(timer_add_route, methods = ['POST','GET'])
@@ -42,18 +44,28 @@ def new_timer():
         result = request.form.to_dict()
         try:
             date = datetime.strptime(result["date"], '%Y-%m-%d')
-            time = datetime.strptime(result["time"], '%I:%M')
+            time = datetime.strptime(result["time"], '%H:%M')
             print(time)
             dt = datetime.combine(date.date(),time.time())
 
-            create_new_timer(str(result["name"]),datetime.strftime(dt, "%b %d, %Y %I:%M:00"))
+            create_new_timer(str(result["name"]),datetime.strftime(dt, "%b %d, %Y %H:%M:00"))
         except Exception as e:
             print(e)
             return "Something went wrong"
         print("result:",result)
-        return result
+        return hello_world()
     return render_template('add_timer.html', route=timer_add_route)
-#create_new_timer("Pinda","Dec 24, 2020 15:37:25")
+
+@app.route('/fill')
+def debug_fill():
+
+    for x in range(11):
+        x += 1
+        name = "Timer {}".format(x)
+        date =  'Feb {}, 2222 00:15:00'.format(x)
+        print(name,date)
+        create_new_timer(name,date)
+    return hello_world()
 
 if __name__ == '__main__':
     app.run()

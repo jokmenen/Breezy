@@ -2,6 +2,7 @@
     HTML -
         DONE: Naam, TimerEle, Make Multiple elements
     CSS - Desktop View, Mobile View, Stylize elements
+            Give elements their own background
     JS -
         DONE: Fetch timer data from backend?, Make timer tick
 

@@ -1,0 +1,69 @@
+/*Bootstrap*/
+.navigatiebalk{
+
+    background-color: #202020 !important;
+
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+.timer_head {
+
+    height: 52vh;
+
+}
+
+.timer_bot {
+
+    height: 34vh;
+
+
+}
+
+.timer {
+
+    /*width: 18vw;*/
+    /*margin-top: 1vw;*/
+    /*margin-right: 0.3vw;*/
+    /*margin-left: 0vw;*/
+    /*margin-bottom: 0vw;*/
+    background-color: dimgrey;
+    /*display: inline-block;*/
+    text-align: center
+}
+
+.timer_digits{
+
+    color: lightgray;
+/*    font-size: 1.8vw;*/
+/*    font-weight: 800;*/
+/*    font-family: 'Roboto', sans-serif;*/
+/*    height: auto;*/
+}
+
+.timer_name{
+    color: white;
+/*    font-size: 1.4vw;*/
+/*    font-weight: 700;*/
+/*    font-family: 'Roboto', sans-serif;*/
+}
+
+div#timer_block {
+
+    /*display: inline;*/
+
+}
+
+body#background {
+    /*padding-top: 50px;*/
+    background-color: #373737 !important;
+
+}
+
+#main_timer_carousel {
+
+    margin-bottom: 1vw;
+
+}
